@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>prestigehomes</title>
+  <link rel="icon" type="image/x-icon" href="https://prestigehomes.silverkeys.co.in/images/logo2.png">
+  <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.3.2/swiper-bundle.css"
+    rel="stylesheet" />
+  <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+
+
+  <style>
+    .header {
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    /* Custom animation for smooth transitions */
+    .slide-fade-enter-active {
+      transition: opacity 1s ease-in-out;
+    }
+
+    .slide-fade-leave-active {
+      transition: opacity 1s ease-in-out;
+    }
+
+    .slide-fade-enter,
+    .slide-fade-leave-to {
+      opacity: 0;
+    }
+
+    .swiper-pagination {
+      bottom: 0;
+      position: relative;
+    }
+
+    .swiper-container {
+      overflow: hidden;
+    }
+
+    .swiper-pagination-bullet {
+      background-color: rgb(14 211 207);
+    }
+
+    .swiper-pagination-bullet-active {
+      background-color: rgb(14 211 207);
+    }
+  </style>
+</head>
+
+<body>
+  <!-- header -->
+
+  <header id="header"
+    class="header  h-[106px] lg:fixed bg-[#B8DBB4] lg:bg-transparent   top-0 left-0 w-full z-50 flex items-center justify-between lg:px-6 py-4 ">
+    <!-- Logo -->
+    <a href="/index.html" class="flex mx-4 lg:mx-20 items-center">
+      <img id="logo" src="https://prestigehomes.silverkeys.co.in/images/logo2.png" alt="Logo" class="h-20" />
+    </a>
+
+    <!-- Mobile Menu Button -->
+    <button id="menuButton" class="lg:hidden mx-4 text-white focus:outline-none" onclick="toggleDrawer()">
+      <span class="iconify lg:text-white text-lg mr-2 text-black h-8 w-8" data-icon="ri-menu-3-line"></span>
+
+    </button>
+
+    <!-- Navigation -->
+    <nav class="mr-20 hidden lg:block">
+      <ul class="flex space-x-6 text-sm font-medium text-white">
+        <li><a href="#overview" class="hover:text-yellow-500 text-lg font-bold">Overview</a></li>
+        <li><a href="#highlight" class="hover:text-yellow-500 text-lg font-bold">Highlight</a></li>
+        <li><a href="#amenities" class="hover:text-yellow-500 text-lg font-bold">Amenities</a></li>
+        <li><a href="#price-list" class="hover:text-yellow-500 text-lg font-bold">Price List</a></li>
+        <li><a href="#floor-plan" class="hover:text-yellow-500 text-lg font-bold">Floor Plan</a></li>
+        <li><a href="#gallery" class="hover:text-yellow-500 text-lg font-bold">Gallery</a></li>
+        <li><a href="#location" class="hover:text-yellow-500 text-lg font-bold">Location</a></li>
+        <li><a href="#contact" class="hover:text-yellow-500 text-lg font-bold">Contact Us</a></li>
+      </ul>
+    </nav>
+
+    <!-- Drawer -->
+    <div id="mobileDrawer"
+      class="fixed inset-y-0 left-0 bg-black w-full z-50 transform -translate-x-full transition-transform duration-300 lg:hidden">
+      <div class="flex justify-between items-center p-4 border-b border-gray-900">
+        <span class="text-lg font-bold text-white">Menu</span>
+        <button class="text-white focus:outline-none" onclick="toggleDrawer()">
+          <span class="iconify text-white text-lg mr-2 text-black w-8 h-8" data-icon="maki-cross"></span>
+        </button>
+      </div>
+      <ul class="p-4 space-y-4 w-full text-white text-center">
+        <li><a href="#overview" class="block hover:text-yellow-500 text-lg font-bold">Overview</a></li>
+        <li><a href="#highlight" class="block hover:text-yellow-500 text-lg font-bold">Highlight</a></li>
+        <li><a href="#amenities" class="block hover:text-yellow-500 text-lg font-bold">Amenities</a></li>
+        <li><a href="#price-list" class="block hover:text-yellow-500 text-lg font-bold">Price List</a></li>
+        <li><a href="#floor-plan" class="block hover:text-yellow-500 text-lg font-bold">Floor Plan</a></li>
+        <li><a href="#gallery" class="block hover:text-yellow-500 text-lg font-bold">Gallery</a></li>
+        <li><a href="#location" class="block hover:text-yellow-500 text-lg font-bold">Location</a></li>
+        <li><a href="#contact" class="block hover:text-yellow-500 text-lg font-bold">Contact Us</a></li>
+        <li><a href="#" class="block hover:text-yellow-500 text-lg font-bold">+91-9019540540</a></li>
+      </ul>
+    </div>
+
+  </header>
+
+
+
+  <!-- Dialog -->
+  <div id="dialog" class="fixed inset-0 bg-black bg-opacity-50 flex z-50 items-center justify-center hidden">
+    <div class="bg-white rounded-lg shadow-lg p-6 w-full  sm:w-[400px] relative">
+      <!-- Close Icon -->
+      <button id="closeDialog" class="absolute top-2 right-2 text-gray-600 hover:text-gray-800 text-3xl">
+        &times;
+      </button>
+      <!-- Dialog Content -->
+      <div class="w-full">
+        <h1 class="text-2xl font-bold text-center mb-8">Prestige New Launch</h1>
+        <form class="w-full  mx-auto">
+          <div class="mb-4">
+            <label for="full_name" class="block text-gray-700 font-bold mb-2">Full Name</label>
+            <input type="text" id="full_name"
+              class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
+          </div>
+          <div class="mb-4">
+            <label for="mobile_no" class="block text-gray-700 font-bold mb-2">Mobile No.</label>
+            <input type="text" id="mobile_no"
+              class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
+          </div>
+          <div class="mb-6">
+            <label for="email" class="block text-gray-700 font-bold mb-2">Email Address</label>
+            <input type="email" id="email"
+              class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
+          </div>
+          <div class="flex items-center justify-center">
+            <button type="submit"
+              class="bg-yellow-600 hover:bg-yellow-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- main -->
+  <section class="lg:h-screen relative">
+    <div class="swiper-container h-full">
+      <div class="swiper-wrapper h-full">
+        <!-- Slide 1 -->
+        <div class="swiper-slide h-full">
+          <img src="https://prestigehomes.silverkeys.co.in/images/banner-2.jpg" alt="Slide 1"
+            class="object-cover w-full h-full" />
+        </div>
+        <!-- Slide 2 -->
+        <div class="swiper-slide h-full">
+          <img src="https://prestigehomes.silverkeys.co.in/images/banner-3.jpg" alt="Slide 2"
+            class="object-cover w-full h-full" />
+        </div>
+      </div>
+      <!-- Pagination -->
+      <div class="swiper-pagination"></div>
+      <!-- Navigation (optional) -->
+      <!-- <div  class="swiper-button-prev   z-40"></div>
+      <div class="swiper-button-next z-40"></div> -->
+    </div>
+
+    <!-- Overlay -->
+    <div class="hidden lg:block absolute z-10 inset-0 bg-black bg-opacity-40"></div>
+
+    <!-- Content -->
+    <div
+      class="my-10 lg:my-0 relative lg:block lg:absolute lg:top-20 lg:left-20 z-40 p-3 lg:p-6 lg:text-white w-full lg:max-w-[400px]">
+      <h1 class="text-4xl font-semibold">Prestige New Launch</h1>
+      <h2 class="text-xl font-semibold mt-2">3, 4 & 5 BHK Apartments</h2>
+
+      <ul class="mt-4 space-y-2">
+        <li class="bg-gray-300 lg:bg-transparent p-2 rounded-lg lg:p-0 flex items-center">
+          <span class="iconify lg:text-white text-lg mr-2" data-icon="teenyicons-tick-circle-solid"></span>
+          62.5 Acres Township
+        </li>
+        <li class="bg-gray-300 lg:bg-transparent p-2 rounded-lg lg:p-0 flex items-center">
+          <span class="iconify lg:text-white text-lg mr-2" data-icon="teenyicons-tick-circle-solid"></span>
+          3 Massive Club Houses
+        </li>
+        <li class="bg-gray-300 lg:bg-transparent p-2 rounded-lg lg:p-0 flex items-center">
+          <span class="iconify lg:text-white text-lg mr-2" data-icon="teenyicons-tick-circle-solid"></span>
+          80% Open Area
+        </li>
+        <li class="bg-gray-300 lg:bg-transparent p-2 rounded-lg lg:p-0 flex items-center">
+          <span class="iconify lg:text-white text-lg mr-2" data-icon="teenyicons-tick-circle-solid"></span>
+          G+40 Floors Tower
+        </li>
+        <li class="bg-gray-300 lg:bg-transparent p-2 rounded-lg lg:p-0 flex items-center">
+          <span class="iconify lg:text-white text-lg mr-2" data-icon="teenyicons-tick-circle-solid"></span>
+          G+40 PaidUp Land
+        </li>
+      </ul>
+
+
+      <button
+        class="openDialog mt-6 lg:bg-white text-black lg:px-6 lg:py-2 rounded-lg lg:shadow-md flex items-center hover:bg-gray-100">
+        Know More
+        <span class="iconify text-lg ml-2" data-icon="mdi-arrow-right"></span>
+      </button>
+    </div>
+
+
+
+
+
+    <div
+      class="block  lg:absolute lg:bottom-0 lg:right-0 bg-black bg-opacity-50 text-white z-40 p-3 rounded-lg shadow-lg max-w-sm mx-auto">
+      <h2 class="text-yellow-500 text-2xl font-semibold mb-6">Book A Site Visit !</h2>
+      <form class="space-y-3">
+        <!-- Name Field -->
+        <input required type="text" placeholder="Enter Name"
+          class="w-full px-4 py-2 bg-gray-800 text-white border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500" />
+        <!-- Email Field -->
+        <input required type="email" placeholder="Enter Email"
+          class="w-full px-4 py-2 bg-gray-800 text-white border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500" />
+        <!-- Number Field -->
+        <div class="flex items-center space-x-2">
+          <span class="bg-gray-800 text-white px-4 py-2 rounded-lg border border-gray-700">+91</span>
+          <input required type="text" placeholder="Enter Number"
+            class="w-full px-4 py-2 bg-gray-800 text-white border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500" />
+        </div>
+        <!-- Message Field -->
+        <textarea required placeholder="Enter Message"
+          class="w-full px-4 py-2 bg-gray-800 text-white border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500"></textarea>
+        <!-- Submit Button -->
+        <button type="submit"
+          class="w-full bg-yellow-500 text-black font-semibold py-2 rounded-lg hover:bg-yellow-600 transition">
+          Submit Now
+        </button>
+        <!-- Consent Checkbox -->
+        <label class="flex items-center text-gray-400 text-xs">
+          <input type="checkbox" class="mr-2 border-gray-700 focus:ring-yellow-500 " />
+          I authorize company representatives to Call, SMS, Email or WhatsApp me about its products and offers. This
+          consent overrides any registration for DND/NDNC.
+        </label>
+      </form>
+    </div>
+    <div
+      class="my-8 lg:mb-0 bg-opacity-40 rounded-lg relative lg:absolute lg:bottom-0 lg:left-24 z-40 lg:bottom-1 p-1 lg:text-white  lg:w-[200px] border border-black">
+      <div class="flex justify-center  gap-3 font-semibold lg:block lg:bg-black bg-opacity-40 rounded-lg p-2">
+
+
+        <p class="lg:text-[#DFA317] text-center text-xl">Starting Price</p>
+        <div class="hidden lg:block border-t-2 border-[#DFA317]  border-dashed  my-2"></div>
+        <p class="lg:text-[#DFA317]  text-center text-xl">1.35 cr</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Overview -->
+  <section class="container mx-auto py-16 px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+      <!-- Images Section -->
+      <div class="relative overflow-hidden pt-15 pb-15">
+        <!-- Image 1 -->
+        <img src="https://prestigehomes.silverkeys.co.in/images/about-img2.jpg" alt="Bedroom"
+          class="p-5 mr-0 z-10 absolute top-0 -left-49 w-250 bg-white" />
+
+        <!-- Image 2 -->
+        <img src="https://prestigehomes.silverkeys.co.in/images/about-image.jpg" alt="Dining Area"
+          class="ml-36 mt-5 relative" />
+      </div>
+
+      <!-- Text Content Section -->
+      <div>
+        <div class="flex item-center gap-4">
+
+
+          <h3 class="text-[#DFA317] font-semibold uppercase tracking-wide">
+            <span class="text-2xl">O</span>verview
+          </h3>
+          <span class="block h-[0.6px]  bg-[#DFA317] w-12  my-auto "></span>
+        </div>
+
+        <h2 class="text-gray-800 text-3xl font-bold leading-tight mt-4">
+          Building Dreams, Creating Homes: Our Story
+        </h2>
+        <p class="text-gray-600 mt-4 leading-relaxed">
+          Discover unparalleled luxury and comfort at Prestige Group's
+          upcoming residential project, situated at Prestige City in Siddharth
+          Vihar, Ghaziabad. Spanning across 63 acres and meticulously planned
+          in three phases, this development promises a lifestyle of opulence.
+        </p>
+        <p class="text-gray-600 mt-4 leading-relaxed">
+          With 80% open green spaces, each 3, 4 & 5 BHK apartment offers
+          park-facing views and finished interiors, ensuring a serene living
+          experience. Boasting direct access from the Delhi Meerut Expressway
+          and just 15 minutes from Akshardham Temple, it seamlessly blends
+          prime location with unmatched connectivity.
+        </p>
+        <p class="text-gray-600 mt-4 leading-relaxed">
+          Residents will enjoy exclusive amenities including expansive parks,
+          multiple clubhouses, a swimming pool, and a dedicated walking path,
+          making it an ideal choice for those seeking both luxury and
+          convenience in the heart of NCR.
+        </p>
+
+        <button class="mt-6 openDialog inline-block text-[#DFA317] font-medium hover:underline flex items-center">
+          Know More
+          <span class="iconify text-lg ml-2" data-icon="mdi-arrow-right"></span>
+        </button>
+      </div>
+    </div>
+  </section>
+  <!-- Highlight -->
+  <section class="bg-[#f8f8f8] w-full">
+    <div class="container mx-auto px-4 py-16">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div>
+          <div class="flex item-center gap-4">
+
+
+            <h3 class="text-[#DFA317] font-semibold  tracking-wide text-2xl">
+              Highlight
+            </h3>
+            <span class="block h-[0.6px]  bg-[#DFA317] w-12  my-auto "></span>
+          </div>
+
+          <h1 class="text-3xl font-semibold mb-8 max-w-[490px]">
+            Elevating Properties: Our Spotlight Features
+          </h1>
+          <ul class="pl-6 flex max-w-[500px] flex-col gap-2">
+            <li class="flex gap-2 item-center">
+              <div class="border-4 w-10 h-10 flex item-center justify-center p-2">
+                01
+              </div>
+              <span>Finished Specifications</span>
+            </li>
+            <li class="flex gap-2">
+              <div class="border-4 w-10 h-10 flex item-center justify-center p-2">
+                02
+              </div>
+              <span>Park Facing Apartments</span>
+            </li>
+            <li class="flex gap-2">
+              <div class="border-4 w-10 h-10 flex item-center justify-center p-2">
+                03
+              </div>
+              <span>3 Phases, 3 Clubhouse, 3 Massive Parks</span>
+            </li>
+            <li class="flex gap-2">
+              <div class="border-4 w-10 h-10 flex item-center justify-center p-2">
+                04
+              </div>
+              <span>Project will have direct access from Delhi Meerut
+                Expressway</span>
+            </li>
+            <li class="flex gap-2">
+              <div class="border-4 w-10 h-10 flex item-center justify-center p-2">
+                05
+              </div>
+              <span>The unmatched amenities include a walking path, swimming
+                pool, club house and many more</span>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <img src="https://prestigehomes.silverkeys.co.in/images/highlight.jpg"
+            alt="Interior of a luxurious apartment" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Amenities -->
+  <div class="bg-[#B8DBB4] w-full">
+    <section class="container mx-auto py-16 px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+        <!-- Images Section -->
+        <div class="relative overflow-auto pt-15 pb-15">
+          <!-- Image 2 -->
+          <img src="https://prestigehomes.silverkeys.co.in/images/amenities.webp" alt="Dining Area" class="relative" />
+        </div>
+
+        <!-- Text Content Section -->
+        <div>
+          <div class="flex item-center gap-4">
+
+
+            <h3 class="text-[#DFA317] font-semibold uppercase tracking-wide">
+              <span class="text-2xl">A</span>menities
+            </h3>
+            <span class="block h-[0.6px]  bg-[#DFA317] w-12  my-auto "></span>
+          </div>
+          <h2 class="text-gray-800 text-3xl font-semibold leading-tight mt-4">
+            Elevated Living: Unparalleled Amenities For Every Lifestyle
+          </h2>
+
+          <div class="flex mt-12">
+            <div class="swiper-container flex-col flex self-center">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <blockquote class="text-left">
+                    <div class="relative">
+                      <div class="relative">
+                        <img
+                          src="https://images.pexels.com/photos/839011/pexels-photo-839011.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                          alt="aji" class="object-cover w-full h-80 mx-auto" />
+                      </div>
+                    </div>
+                  </blockquote>
+                </div>
+
+                <div class="swiper-slide">
+                  <blockquote class="text-left">
+                    <div class="">
+                      <div class="relative">
+                        <img
+                          src="https://images.pexels.com/photos/1382730/pexels-photo-1382730.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                          alt="aji" class="object-cover w-full mx-auto h-80" />
+                        <div class="rounded-t-2xl absolute bg-gradient-to-t from-gray-800 opacity-75 inset-0 z-0"></div>
+                      </div>
+                    </div>
+                  </blockquote>
+                </div>
+
+                <div class="swiper-slide">
+                  <blockquote class="text-left">
+                    <div class="">
+                      <div class="relative">
+                        <img
+                          src="https://images.pexels.com/photos/846741/pexels-photo-846741.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                          alt="aji" class="object-cover w-full mx-auto h-80" />
+                        <div class="rounded-t-2xl absolute bg-gradient-to-t from-gray-800 opacity-75 inset-0 z-0"></div>
+                      </div>
+                    </div>
+                  </blockquote>
+                </div>
+              </div>
+
+              <div class="mt-12 swiper-pagination hidden"></div>
+            </div>
+          </div>
+
+          <button class="mt-6 openDialog inline-block text-[#DFA317] font-medium hover:underline flex items-center">
+            Know More
+            <span class="iconify text-lg ml-2" data-icon="mdi-arrow-right"></span>
+          </button>
+        </div>
+      </div>
+    </section>
+  </div>
+
+
+
+
+  <!-- Price List -->
+  <div class="container mb-20 mx-auto mt-10">
+
+    <div class="flex item-center mx-auto  gap-2 max-w-[200px]">
+      <h2 class="text-xl font-bold text-center  text-[#DFA317] ">Price List</h2> <span
+        class="block h-[0.6px]  bg-[#DFA317] w-12  my-auto "></span>
+    </div>
+
+    <h3 class="text-3xl font-semibold text-center mb-8">Unlock the Door to Affordable Luxury</h3>
+    <div class="flex flex-col  lg:flex-row gap-6 max-w-[1000px] gap-2  mx-auto">
+
+      <div
+        class="bg-[#B8DBB4] gap-2 w-full mx-auto lg:flex-1  max-w-[400px] flex flex-col item-center justify-center rounded-lg shadow-xl px-6 py-8">
+        <div class="p-[2px] border-2 border-black">
+          <div class="bg-black text-white text-center font-bold text-xl  p-2 ">3 BHK</div>
+        </div>
+        <p class="text-2xl font-semibold text-center my-2">₹ On Request</p>
+        <div class="border-t-2 border-dashed border-gray-500 my-2"></div>
+        <p class=" font-semibold text-center mb-4 text-lg">Size: 1100-1200 Sq.Ft.</p>
+        <div class="m-auto">
+          <button
+            class="bg-[#B98305] hover:bg-[#B98119] text-white  py-2 px-4 rounded-md inline-flex items-center   openDialog">
+            Know More
+            <span class="iconify text-lg ml-2" data-icon="mdi-arrow-right"></span>
+          </button>
+        </div>
+      </div>
+      <div
+        class="bg-[#B8DBB4] gap-2 w-full mx-auto lg:flex-1  max-w-[400px] flex flex-col item-center justify-center rounded-lg shadow-xl px-6 py-8">
+        <div class="p-[2px] border-2 border-black">
+          <div class="bg-black text-white text-center font-bold text-xl  p-2 ">3 BHK</div>
+        </div>
+        <p class="text-2xl font-semibold text-center my-2">₹ On Request</p>
+        <div class="border-t-2 border-dashed border-gray-500 my-2"></div>
+        <p class=" font-semibold text-center mb-4 text-lg">Size: 1100-1200 Sq.Ft.</p>
+        <div class="m-auto">
+          <button
+            class="bg-[#B98305] hover:bg-[#B98119] text-white  py-2 px-4 rounded-md inline-flex items-center   openDialog">
+            Know More
+            <span class="iconify text-lg ml-2" data-icon="mdi-arrow-right"></span>
+          </button>
+        </div>
+      </div>
+      <div
+        class="bg-[#B8DBB4] gap-2 w-full mx-auto lg:flex-1  max-w-[400px] flex flex-col item-center justify-center rounded-lg shadow-xl px-6 py-8">
+        <div class="p-[2px] border-2 border-black">
+          <div class="bg-black text-white text-center font-bold text-xl  p-2 ">3 BHK</div>
+        </div>
+        <p class="text-2xl font-semibold text-center my-2">₹ On Request</p>
+        <div class="border-t-2 border-dashed border-gray-500 my-2"></div>
+        <p class=" font-semibold text-center mb-4 text-lg">Size: 1100-1200 Sq.Ft.</p>
+        <div class="m-auto">
+          <button
+            class="bg-[#B98305] hover:bg-[#B98119] text-white  py-2 px-4 rounded-md inline-flex items-center   openDialog">
+            Know More
+            <span class="iconify text-lg ml-2" data-icon="mdi-arrow-right"></span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  </div>
+
+
+  <!-- free plan -->
+  <div class="container mb-20 mx-auto mt-10">
+
+    <div class="flex item-center mx-auto  gap-2 max-w-[200px]">
+      <h2 class="text-xl font-bold text-center  text-[#DFA317] ">Floor Plan</h2> <span
+        class="block h-[0.6px]  bg-[#DFA317] w-12  my-auto "></span>
+    </div>
+    <h3 class="text-3xl font-semibold text-center mb-8">Choose Your Perfect Plan</h3>
+    <div class="flex flex-col  lg:flex-row gap-6 max-w-[1000px] gap-2  mx-auto">
+
+      <div
+        class="hover:bg-[#DFA317] ease-in-out trasition-all gap-2 w-full mx-auto lg:flex-1  max-w-[400px] flex flex-col item-center justify-center rounded-lg shadow-xl px-6 py-8">
+        <div class="p-[2px] h-[250px] relative  rounded-xl border-[2px] border-black items-center  flex justify-center">
+          <img src="https://prestigehomes.silverkeys.co.in/images/floorplan.webp"
+            class="object-cover p-4 opacity-[25%] w-full h-full" />
+
+          <button
+            class="text-[#DFA317] openDialog absolute  bg-black  py-2 px-4 rounded-md inline-flex items-center w-28 flex justify-center ">
+            <span>View Plan</span>
+
+          </button>
+        </div>
+        <div class="bg-black text-[#DFA317] rounded-lg text-center font-bold text-xl  p-2 ">3 BHK</div>
+      </div>
+
+
+      <div
+        class="hover:bg-[#DFA317] ease-in-out trasition-all gap-2 w-full mx-auto lg:flex-1  max-w-[400px] flex flex-col item-center justify-center rounded-lg shadow-xl px-6 py-8">
+        <div class="p-[2px] h-[250px] relative  rounded-xl border-[2px] border-black items-center  flex justify-center">
+          <img src="https://prestigehomes.silverkeys.co.in/images/floorplan.webp"
+            class="object-cover p-4 opacity-[25%] w-full h-full" />
+
+          <button
+            class="text-[#DFA317] openDialog absolute  bg-black  py-2 px-4 rounded-md inline-flex items-center w-28 flex justify-center ">
+            <span>View Plan</span>
+
+          </button>
+        </div>
+        <div class="bg-black text-[#DFA317] rounded-lg text-center font-bold text-xl  p-2 ">3 BHK</div>
+      </div>
+      <div
+        class="hover:bg-[#DFA317] ease-in-out trasition-all gap-2 w-full mx-auto lg:flex-1  max-w-[400px] flex flex-col item-center justify-center rounded-lg shadow-xl px-6 py-8">
+        <div class="p-[2px] h-[250px] relative  rounded-xl border-[2px] border-black items-center  flex justify-center">
+          <img src="https://prestigehomes.silverkeys.co.in/images/floorplan.webp"
+            class="object-cover p-4 opacity-[25%] w-full h-full" />
+
+          <button
+            class="text-[#DFA317] openDialog absolute  bg-black  py-2 px-4 rounded-md inline-flex items-center w-28 flex justify-center ">
+            <span>View Plan</span>
+
+          </button>
+        </div>
+        <div class="bg-black text-[#DFA317] rounded-lg text-center font-bold text-xl  p-2 ">3 BHK</div>
+      </div>
+    </div>
+
+  </div>
+
+
+
+
+  <!-- gallary -->
+  <div class="max-w-[1140px]  mb-20 mx-3 lg:mx-auto mt-10">
+    <div class="flex item-center gap-4 ">
+      <h2 class="text-[#DFA317]  font-bold text-xl">Gallary</h2> <span
+        class="block h-[0.6px]  bg-[#DFA317] w-16  my-auto "></span>
+    </div>
+
+    <h3 class="text-3xl font-semibold  mb-8 text-center lg:text-start">Discover Your Dream Home: Explore Our Stunning
+      Gallery</h3>
+
+
+    <div class="flex flex-wrap justify-center gap-4 max-w-[1000px] mx-auto">
+
+      <div class="lg:flex-1 flex gap-4 ">
+        <!-- Card 1 -->
+        <div class="max-w-[240px] flex-1 h-[140px] rounded-lg shadow-xl p-[4px] flex mx-auto">
+          <img src="https://prestigehomes.silverkeys.co.in/images/gallery-1-sm.jpg" alt="Gallery Image 1"
+            class="object-cover rounded-md w-full h-full" />
+        </div>
+
+        <!-- Card 2 -->
+        <div class="max-w-[240px] flex-1  h-[140px] rounded-lg shadow-xl p-[4px] mx-auto">
+          <img src="https://prestigehomes.silverkeys.co.in/images/gallery-2-sm.jpg" alt="Gallery Image 2"
+            class="object-cover rounded-md w-full h-full" />
+        </div>
+      </div>
+      <div class="lg:flex-1 flex gap-4">
+        <!-- Card 3 -->
+        <div class="max-w-[240px] flex-1  h-[140px] rounded-lg shadow-xl p-[4px] mx-auto">
+          <img src="https://prestigehomes.silverkeys.co.in/images/gallery-3-sm.jpg" alt="Gallery Image 3"
+            class="object-cover rounded-md w-full h-full" />
+        </div>
+
+        <!-- Card 4 -->
+        <div class="max-w-[240px] flex-1  h-[140px] rounded-lg shadow-xl p-[4px] mx-auto">
+          <img src="https://prestigehomes.silverkeys.co.in/images/gallery-4-sm.jpg" alt="Gallery Image 4"
+            class="object-cover rounded-md w-full h-full" />
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+
+
+
+  <!-- location -->
+  <div class="bg-[#daf3d8] p-8">
+    <div class="max-w-[1200px] mx-auto flex flex-col lg:flex-row gap-8">
+      <!-- Map Section -->
+      <div class="w-full lg:w-1/2">
+        <img src="https://prestigehomes.silverkeys.co.in/images/location.jpg" alt="Map"
+          class="w-full rounded-md shadow-lg" />
+      </div>
+
+      <!-- Location Details Section -->
+      <div class="w-full lg:w-1/2">
+        <div class="flex item-center gap-4 ">
+          <h2 class="text-[#DFA317]  font-bold text-xl">Location</h2> <span
+            class="block h-[0.6px]  bg-[#DFA317] w-16  my-auto "></span>
+        </div>
+        <h3 class="text-2xl font-semibold mt-2 mb-4">
+          Perfectly Positioned: Discover Our Ideal Locations
+        </h3>
+        <ul class="space-y-2">
+          <li class="flex items-center">
+            <span class="iconify text-2xl mr-2" data-icon="mdi:map-marker" data-inline="false"></span>
+
+
+            Akshardham Temple: 15 Min
+          </li>
+          <li class="flex items-center">
+            <span class="iconify text-2xl mr-2" data-icon="mdi:map-marker" data-inline="false"></span>
+            Sector 62 Noida Metro: 5 Min
+          </li>
+          <li class="flex items-center">
+            <span class="iconify text-2xl mr-2" data-icon="mdi:map-marker" data-inline="false"></span>
+            Direct Access From Delhi Meerut Expressway
+          </li>
+          <li class="flex items-center">
+            <span class="iconify text-2xl mr-2" data-icon="mdi:map-marker" data-inline="false"></span>
+            Prime Location & Unmatched Connectivity
+          </li>
+          <li class="flex items-center">
+            <span class="iconify text-2xl mr-2" data-icon="mdi:map-marker" data-inline="false"></span>
+            Indirapuram Extension
+          </li>
+          <li class="flex items-center">
+            <span class="iconify text-2xl mr-2" data-icon="mdi:map-marker" data-inline="false"></span>
+            Elevated Road And The NH-24
+          </li>
+          <li class="flex items-center">
+            <span class="iconify text-2xl mr-2" data-icon="mdi:map-marker" data-inline="false"></span>
+            Well-Connected To 3 Major Expressways
+          </li>
+          <li class="flex items-center">
+            <span class="iconify text-2xl mr-2" data-icon="mdi:map-marker" data-inline="false"></span>
+            CISF Camp Indirapuram Extension: 3 Mins
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+  <div class="max-w-7xl mx-auto px-4 py-10">
+    <div class="grid lg:grid-cols-2 gap-10 items-start">
+      <!-- About Developer Section -->
+      <div>
+        <h2 class="text-[#DFA317] flex item-center gap-3 text-2xl font-semibold mb-4">
+          <span> About Developer</span>
+          <span class="block h-[0.6px]  bg-[#DFA317] w-16  my-auto "></span>
+        </h2>
+        <p class="text-gray-700 font-semibold leading-relaxed">
+          The Prestige Group was set up in 1986 and is now the most well-known developer in Bangalore. The group has a
+          wide range of projects in different areas of the country. There are over 200 projects by the group. These are
+          in areas such as Bangalore, Hyderabad, Chennai, and Mumbai. The group has built villas, apartments, and plots
+          that are known for their high quality. Every home by the builder is designed to be the perfect modern living
+          space. The projects have an array of services that suit all residents. The builder’s projects are in
+          well-connected areas that can be easily reached. These are close to all important services like hospitals and
+          schools. Living in a home by the Prestige Group means living a life of comfort and ease.
+        </p>
+      </div>
+
+      <!-- Keep In Touch Form Section -->
+      <div class="bg-black text-white p-8 rounded-lg shadow-lg max-w-md mx-auto">
+        <h2 class="text-yellow-500 text-2xl font-semibold mb-6">Keep In Touch</h2>
+        <form class="space-y-4">
+          <!-- Name Field -->
+          <input required type="text" placeholder="Enter Name"
+            class="w-full px-4 py-2 bg-gray-800 text-white border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500" />
+          <!-- Email Field -->
+          <input required type="email" placeholder="Enter Email"
+            class="w-full px-4 py-2 bg-gray-800 text-white border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500" />
+          <!-- Number Field -->
+          <div class="flex items-center space-x-2">
+            <span class="bg-gray-800 text-white px-4 py-2 rounded-lg border border-gray-700">+91</span>
+            <input required type="text" placeholder="Enter Number"
+              class="w-full px-4 py-2 bg-gray-800 text-white border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500" />
+          </div>
+          <!-- Message Field -->
+          <textarea required placeholder="Enter Message"
+            class="w-full px-4 py-2 bg-gray-800 text-white border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500"></textarea>
+          <!-- Submit Button -->
+          <button type="submit"
+            class="w-full bg-yellow-500 text-black font-semibold py-2 rounded-lg hover:bg-yellow-600 transition">
+            Submit Now
+          </button>
+          <!-- Consent Checkbox -->
+          <label class="flex items-center text-gray-400 text-sm">
+            <input type="checkbox" class="mr-2 border-gray-700 focus:ring-yellow-500" />
+            I authorize company representatives to Call, SMS, Email or WhatsApp me about its products and offers. This
+            consent overrides any registration for DND/NDNC.
+          </label>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Disclaimer Section -->
+  <div class="bg-[#daf3d8] py-6">
+
+    <div class="max-w-7xl mx-auto px-4 text-sm text-gray-900">
+      <div id="disclaimer" class="text-gray-900 text-sm mt-4 ">
+        <p id="short-text">
+          Disclaimer - The content provided on this website is for information purposes only and does not constitute an
+          offer to avail any service. The prices mentioned are subject to change without prior notice, and the
+          availability of properties mentioned is not guaranteed.
+        </p>
+        <p id="full-text" class="hidden">
+          Disclaimer - The content provided on this website is for information purposes only and does not constitute an
+          offer to avail any service. The prices mentioned are subject to change without prior notice, and the
+          availability of properties mentioned is not guaranteed.
+
+          The images displayed on the website are for representation purposes only and may not reflect the actual
+          properties accurately. Please note that this is the official website of an authorized marketing partner. We
+          may share data with Real Estate Regulatory Authority (RERA) registered brokers/companies for further
+          processing as required. We may also send updates and information to the mobile number or email ID registered
+          with us. All rights reserved. The content, design, and information on this website are protected by copyright
+          and other intellectual property rights. Any unauthorized use or reproduction of the content may violate
+          applicable laws. For accurate and up-to-date information regarding services, pricing, availability, and any
+          other details, it is advisable to contact us directly through the provided contact information on this
+          website. Thank you for visiting our website.
+        </p>
+        <button id="toggle-btn" class="text-blue-600 underline mt-2 inline-block" onclick="toggleDisclaimer()">
+          Read More
+        </button>
+      </div>
+
+      <a href="#" class=" underline text-black mt-4 block"> Disclaimer & Privacy Policy</a>
+    </div>
+  </div>
+  <script>
+    const fullText = document.getElementById("full-text");
+    const shortText = document.getElementById("short-text");
+    const toggleBtn = document.getElementById("toggle-btn");
+
+    function toggleDisclaimer() {
+      if (shortText.classList.contains("hidden")) {
+        fullText.classList.add("hidden");
+        shortText.classList.remove("hidden");
+        toggleBtn.textContent = "Read More";
+      } else {
+        fullText.classList.remove("hidden");
+        shortText.classList.add("hidden");
+        toggleBtn.textContent = "Read Less";
+      }
+    }
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script>
+    function toggleDrawer() {
+      const drawer = document.getElementById("mobileDrawer");
+      const isHidden = drawer.classList.contains("-translate-x-full");
+      drawer.classList.toggle("-translate-x-full", !isHidden);
+      drawer.classList.toggle("translate-x-0", isHidden);
+    }
+  </script>
+  <script>
+    document.addEventListener("scroll", () => {
+      const header = document.getElementById("header");
+      const logo = document.getElementById("logo");
+      const isLargeScreen = window.innerWidth >= 1024;
+
+      if (isLargeScreen) {
+
+        if (window.scrollY > 50) {
+          // Add background and shadow
+
+          header.classList.remove("lg:bg-transparent");
+          header.classList.add("bg-[#B8DBB4]", "shadow-lg");
+          // Update logo
+          logo.src = "https://prestigehomes.silverkeys.co.in/images/logo1.png";
+        } else {
+          // Remove background and shadow
+          header.classList.remove("bg-[#B8DBB4]", "shadow-lg");
+          header.classList.add("lg:bg-transparent");
+
+          // Revert logo
+          logo.src = "https://prestigehomes.silverkeys.co.in/images/logo2.png";
+        }
+      }
+    })
+
+    const slides = document.querySelectorAll("#slider .slide");
+    console.log(slides)
+    let currentSlide = 0;
+    function changeSlide() {
+      // Hide all slides
+      slides.forEach((slide) => {
+        slide.classList.remove("opacity-100");
+        slide.classList.add("opacity-0");
+        slide.classList.add("hidden");
+      });
+
+      // Show the current slide
+      // slides[currentSlide].classList.remove("opacity-0,hidden");
+      // slides[currentSlide].classList.add("opacity-100");
+
+
+      // Update slide index
+      currentSlide = (currentSlide + 1) % slides.length;
+    }
+
+    // Change slide every 5 seconds
+    setInterval(changeSlide, 3000);
+
+    document.addEventListener("DOMContentLoaded", function () {
+      new Swiper(".swiper-container", {
+        loop: true,
+        slidesPerView: 1,
+        spaceBetween: 8,
+        autoplay: {
+          delay: 3000,
+          disableOnInteraction: false,
+        },
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+        breakpoints: {
+          slidesPerView: 1,
+        },
+        navigation: {
+          nextEl: ".swiper-button-next", // Next button
+          prevEl: ".swiper-button-prev", // Previous button
+        },
+      });
+    });
+    // Add event listeners for custom buttons
+    document.getElementById("prevSlide").addEventListener("click", () => {
+      swiper.slidePrev(); // Go to previous slide
+    });
+
+    document.getElementById("nextSlide").addEventListener("click", () => {
+      swiper.slideNext(); // Go to next slide
+    });
+  </script>
+  <script>
+    // Select elements
+    const dialog = document.getElementById("dialog");
+    const openDialogButtons = document.querySelectorAll(".openDialog");
+    const closeDialogButton = document.getElementById("closeDialog");
+
+    // Function to open the dialog
+    const openDialog = () => {
+      dialog.classList.remove("hidden");
+    };
+
+    // Function to close the dialog
+    const closeDialog = () => {
+      dialog.classList.add("hidden");
+    };
+
+    // Add event listeners to all buttons
+    openDialogButtons.forEach((button) => {
+      button.addEventListener("click", openDialog);
+    });
+
+    // Close dialog when clicking outside or on the close button
+    dialog.addEventListener("click", (e) => {
+      if (e.target === dialog || e.target === closeDialogButton) {
+        closeDialog();
+      }
+    });
+  </script>
+</body>
+
+</html>
