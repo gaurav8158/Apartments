@@ -47,6 +47,13 @@
     .swiper-pagination-bullet-active {
       background-color: rgb(14 211 207);
     }
+
+    @media (min-width: 1024px) {
+      .main-address {
+        writing-mode: vertical-lr;
+        text-orientation: mixed;
+      }
+    }
   </style>
 </head>
 
@@ -140,9 +147,6 @@
       </div>
     </div>
   </div>
-
-
-
   <!-- main -->
   <section class="lg:h-screen relative">
     <div class="swiper-container h-full">
@@ -166,11 +170,11 @@
     </div>
 
     <!-- Overlay -->
-    <div class="hidden lg:block absolute z-10 inset-0 bg-black bg-opacity-40"></div>
+    <div class="hidden lg:block absolute z-10 inset-0 bg-black bg-opacity-20"></div>
 
     <!-- Content -->
     <div
-      class="my-10 lg:my-0 relative lg:block lg:absolute lg:top-20 lg:left-20 z-40 p-3 lg:p-6 lg:text-white w-full lg:max-w-[400px]">
+      class="my-10 lg:my-0 relative lg:block lg:absolute lg:top-28 lg:left-20 z-40 p-3 lg:p-6 lg:text-white w-full lg:max-w-[400px]">
       <h1 class="text-4xl font-semibold">Prestige New Launch</h1>
       <h2 class="text-xl font-semibold mt-2">3, 4 & 5 BHK Apartments</h2>
 
@@ -204,37 +208,44 @@
         <span class="iconify text-lg ml-2" data-icon="mdi-arrow-right"></span>
       </button>
     </div>
-
-
-
-
-
     <div
-      class="block  lg:absolute lg:bottom-0 lg:right-0 bg-black bg-opacity-50 text-white z-40 p-3 rounded-lg shadow-lg max-w-sm mx-auto">
-      <h2 class="text-yellow-500 text-2xl font-semibold mb-6">Book A Site Visit !</h2>
+      class="relative main-address lg:absolute lg:bottom-0 lg:top-0 lg:left-0 bg-gray-900 lg:bg-opacity-[40%] text-white lg:z-40 p-3 shadow-lg w-full lg:w-16 flex items-center justify-center lg:rotate-180 transform lg:space-y-2">
+
+
+      <span class="iconify text-2xl transform lg:rotate-90 rotate-0" data-icon="mdi:map-marker"
+        data-inline="false"></span>
+
+
+      <span class="block ">
+        Siddharth vihar, NH-24, Ghaziabad
+      </span>
+    </div>
+    <div
+      class="block  lg:absolute lg:bottom-0 lg:right-0 lg:bg-gray-200 lg:bg-opacity-[60%] text-white z-40 p-3 rounded-lg shadow-lg max-w-sm mx-auto">
+      <h2 class="text-yellow-500  lg:text-black text-2xl font-semibold mb-6">Book A Site Visit !</h2>
       <form class="space-y-3">
         <!-- Name Field -->
         <input required type="text" placeholder="Enter Name"
-          class="w-full px-4 py-2 bg-gray-800 text-white border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500" />
+          class="w-full px-4 py-2 placeholder-black bg-transparent text-black border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500" />
         <!-- Email Field -->
         <input required type="email" placeholder="Enter Email"
-          class="w-full px-4 py-2 bg-gray-800 text-white border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500" />
+          class="w-full placeholder-black px-4 py-2 bg-transparent text-black  border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500" />
         <!-- Number Field -->
         <div class="flex items-center space-x-2">
-          <span class="bg-gray-800 text-white px-4 py-2 rounded-lg border border-gray-700">+91</span>
+          <span class="text-black px-4 py-2 rounded-lg border border-gray-700">+91</span>
           <input required type="text" placeholder="Enter Number"
-            class="w-full px-4 py-2 bg-gray-800 text-white border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500" />
+            class="w-full placeholder-black px-4 py-2 bg-transparent text-black border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500" />
         </div>
         <!-- Message Field -->
         <textarea required placeholder="Enter Message"
-          class="w-full px-4 py-2 bg-gray-800 text-white border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500"></textarea>
+          class="w-full placeholder-black px-4 py-2 bg-transparent text-black  border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500"></textarea>
         <!-- Submit Button -->
         <button type="submit"
           class="w-full bg-yellow-500 text-black font-semibold py-2 rounded-lg hover:bg-yellow-600 transition">
           Submit Now
         </button>
         <!-- Consent Checkbox -->
-        <label class="flex items-center text-gray-400 text-xs">
+        <label class="flex items-center  text-gray-900  text-[8px] font-semibold ">
           <input type="checkbox" class="mr-2 border-gray-700 focus:ring-yellow-500 " />
           I authorize company representatives to Call, SMS, Email or WhatsApp me about its products and offers. This
           consent overrides any registration for DND/NDNC.
@@ -246,15 +257,15 @@
       <div class="flex justify-center  gap-3 font-semibold lg:block lg:bg-black bg-opacity-40 rounded-lg p-2">
 
 
-        <p class="lg:text-[#DFA317] text-center text-xl">Starting Price</p>
+        <p class="lg:text-[#DFA317] text-center text-3xl lg:text-xl">Starting Price</p>
         <div class="hidden lg:block border-t-2 border-[#DFA317]  border-dashed  my-2"></div>
-        <p class="lg:text-[#DFA317]  text-center text-xl">1.35 cr</p>
+        <p class="lg:text-[#DFA317]  text-center text-3xl lg:text-xl">1.35 cr</p>
       </div>
     </div>
   </section>
 
   <!-- Overview -->
-  <section id="overview"  class="container mx-auto py-16 px-4 sm:px-6 lg:px-8">
+  <section id="overview" class="container mx-auto py-16 px-4 sm:px-6 lg:px-8">
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
       <!-- Images Section -->
       <div class="relative overflow-hidden pt-15 pb-15">
@@ -309,7 +320,7 @@
     </div>
   </section>
   <!-- Highlight -->
-  <section id="highlight"  class="bg-[#f8f8f8] w-full">
+  <section id="highlight" class="bg-[#f8f8f8] w-full">
     <div class="container mx-auto px-4 py-16">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
         <div>
@@ -325,7 +336,7 @@
           <h1 class="text-3xl font-semibold mb-8 max-w-[490px]">
             Elevating Properties: Our Spotlight Features
           </h1>
-          <ul class="pl-6 flex max-w-[500px] flex-col gap-2">
+          <ul class="lg:pl-6 flex max-w-[500px] flex-col gap-2">
             <li class="flex gap-2 item-center">
               <div class="border-4 w-10 h-10 flex item-center justify-center p-2">
                 01
@@ -369,7 +380,7 @@
   </section>
 
   <!-- Amenities -->
-  <div  id="amenities"  class="bg-[#B8DBB4] w-full">
+  <div id="amenities" class="bg-[#B8DBB4] w-full">
     <section class="container mx-auto py-16 px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
         <!-- Images Section -->
@@ -393,45 +404,53 @@
           </h2>
 
           <div class="flex mt-12">
-            <div class="swiper-container flex-col flex self-center">
+            <div class="swiper-container lg:-ml-20 flex-col flex self-center">
               <div class="swiper-wrapper">
                 <div class="swiper-slide">
-                  <blockquote class="text-left">
-                    <div class="relative">
-                      <div class="relative">
-                        <img
-                          src="https://images.pexels.com/photos/839011/pexels-photo-839011.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-                          alt="aji" class="object-cover w-full h-80 mx-auto" />
+
+
+                  <div class="flex flex-col-reverse lg:flex-row items-center lg:gap-5 justify-between bg-black lg:p-8">
+                    <div class=" lg:flex-1 lg:flex lg:border h-full p-2 lg:py-10 flex-col">
+
+
+                      <div class="text-2xl font-bold text-yellow-500">Flower Garden</div>
+                      <div class=" hidden lg:block text-white">
+                        <p>Unleash your inner gardener and craft a breathtaking bloom haven.</p>
+                        <p>Delight in a palette of vibrant colors and enchanting scents all season long.</p>
                       </div>
                     </div>
-                  </blockquote>
+                    <div class="flex-1 flex justify-center w-full items-center">
+                      <img src="https://prestigehomes.silverkeys.co.in/images/flower-garden.webp" alt="Flower Garden"
+                        class="object-cover w-full h-60 mx-auto">
+                    </div>
+                  </div>
+
+
                 </div>
 
                 <div class="swiper-slide">
-                  <blockquote class="text-left">
-                    <div class="">
-                      <div class="relative">
-                        <img
-                          src="https://images.pexels.com/photos/1382730/pexels-photo-1382730.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-                          alt="aji" class="object-cover w-full mx-auto h-80" />
-                        <div class="rounded-t-2xl absolute bg-gradient-to-t from-gray-800 opacity-75 inset-0 z-0"></div>
+
+                  <div class="flex flex-col-reverse lg:flex-row items-center lg:gap-5 justify-between bg-black lg:p-8">
+                    <div class=" lg:flex-1 lg:flex lg:border h-full p-2 lg:py-10 flex-col">
+
+
+                      <div class="text-2xl font-bold text-yellow-500">Gym</div>
+                      <div class=" hidden lg:block text-white">
+                        <p>Our gym is equipped with top-of-the-line exercise machines and equipment
+                          to accommodate various workout preferences and fitness levels.
+                        </p>
+
                       </div>
                     </div>
-                  </blockquote>
+                    <div class="flex-1 flex justify-center w-full items-center">
+                      <img src="https://prestigehomes.silverkeys.co.in/images/a4.webp" alt="Flower Garden"
+                        class="object-cover w-full h-60 mx-auto">
+                    </div>
+                  </div>
+
+
                 </div>
 
-                <div class="swiper-slide">
-                  <blockquote class="text-left">
-                    <div class="">
-                      <div class="relative">
-                        <img
-                          src="https://images.pexels.com/photos/846741/pexels-photo-846741.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-                          alt="aji" class="object-cover w-full mx-auto h-80" />
-                        <div class="rounded-t-2xl absolute bg-gradient-to-t from-gray-800 opacity-75 inset-0 z-0"></div>
-                      </div>
-                    </div>
-                  </blockquote>
-                </div>
               </div>
 
               <div class="mt-12 swiper-pagination hidden"></div>
@@ -447,19 +466,16 @@
     </section>
   </div>
 
-
-
-
   <!-- Price List -->
-  <div  id="price-list" class="container mb-20 mx-auto mt-10">
+  <div id="price-list" class="container mb-20 mx-auto mt-10">
 
-    <div class="flex item-center mx-auto  gap-2 max-w-[200px]">
+    <div class="flex item-center  mx-4 lg:mx-auto  gap-2 lg:max-w-[200px]">
       <h2 class="text-xl font-bold text-center  text-[#DFA317] ">Price List</h2> <span
         class="block h-[0.6px]  bg-[#DFA317] w-12  my-auto "></span>
     </div>
 
-    <h3 class="text-3xl font-semibold text-center mb-8">Unlock the Door to Affordable Luxury</h3>
-    <div class="flex flex-col  lg:flex-row gap-6 max-w-[1000px] gap-2  mx-auto">
+    <h3 class="text-3xl mx-4 lg:mx-0 font-semibold lg:text-center mb-8">Unlock the Door to Affordable Luxury</h3>
+    <div class="flex flex-col  lg:flex-row gap-6 max-w-[1000px] gap-2 mx-4 sm:mx-auto">
 
       <div
         class="bg-[#B8DBB4] gap-2 w-full mx-auto lg:flex-1  max-w-[400px] flex flex-col item-center justify-center rounded-lg shadow-xl px-6 py-8">
@@ -509,6 +525,7 @@
           </button>
         </div>
       </div>
+
     </div>
 
   </div>
@@ -518,11 +535,11 @@
   <!-- free plan -->
   <div id="floor-plan" class="container mb-20 mx-auto mt-10">
 
-    <div class="flex item-center mx-auto  gap-2 max-w-[200px]">
+    <div class="flex lg:item-center mx-4 lg:mx-auto  gap-2 lg:max-w-[200px]">
       <h2 class="text-xl font-bold text-center  text-[#DFA317] ">Floor Plan</h2> <span
         class="block h-[0.6px]  bg-[#DFA317] w-12  my-auto "></span>
     </div>
-    <h3 class="text-3xl font-semibold text-center mb-8">Choose Your Perfect Plan</h3>
+    <h3 class="text-3xl font-semibold mx-4 lg:mx-0 lg:text-center mb-4">Choose Your Perfect Plan</h3>
     <div class="flex flex-col  lg:flex-row gap-6 max-w-[1000px] gap-2  mx-auto">
 
       <div
@@ -573,17 +590,14 @@
 
   </div>
 
-
-
-
   <!-- gallary -->
-  <div id="gallery"  class="max-w-[1140px]  mb-20 mx-3 lg:mx-auto mt-10">
+  <div id="gallery" class="max-w-[1140px]  mb-20 mx-3 lg:mx-auto mt-10">
     <div class="flex item-center gap-4 ">
       <h2 class="text-[#DFA317]  font-bold text-xl">Gallary</h2> <span
         class="block h-[0.6px]  bg-[#DFA317] w-16  my-auto "></span>
     </div>
 
-    <h3 class="text-3xl font-semibold  mb-8 text-center lg:text-start">Discover Your Dream Home: Explore Our Stunning
+    <h3 class="text-2xl lg:text-3xl font-semibold  mb-8 text-start">Discover Your Dream Home: Explore Our Stunning
       Gallery</h3>
 
 
@@ -620,11 +634,8 @@
 
 
   </div>
-
-
-
   <!-- location -->
-  <div id="location"  class="bg-[#daf3d8] p-8" >
+  <div id="location" class="bg-[#daf3d8] p-8">
     <div class="max-w-[1200px] mx-auto flex flex-col lg:flex-row gap-8">
       <!-- Map Section -->
       <div class="w-full lg:w-1/2">
@@ -681,12 +692,7 @@
     </div>
   </div>
 
-
-
-
-
-
-  <div id="contact"  class="max-w-7xl mx-auto px-4 py-10">
+  <div id="contact" class="max-w-7xl mx-auto px-4 py-10">
     <div class="grid lg:grid-cols-2 gap-10 items-start">
       <!-- About Developer Section -->
       <div>
@@ -694,7 +700,7 @@
           <span> About Developer</span>
           <span class="block h-[0.6px]  bg-[#DFA317] w-16  my-auto "></span>
         </h2>
-        <p class="text-gray-700 font-semibold leading-relaxed">
+        <p class="text-gray-700 lg:font-semibold leading-relaxed">
           The Prestige Group was set up in 1986 and is now the most well-known developer in Bangalore. The group has a
           wide range of projects in different areas of the country. There are over 200 projects by the group. These are
           in areas such as Bangalore, Hyderabad, Chennai, and Mumbai. The group has built villas, apartments, and plots
@@ -706,7 +712,7 @@
       </div>
 
       <!-- Keep In Touch Form Section -->
-      <div class="bg-black text-white p-8 rounded-lg shadow-lg max-w-md mx-auto">
+      <div class="bg-black text-white p-4 lg:p-8 rounded-lg shadow-lg max-w-md mx-auto">
         <h2 class="text-yellow-500 text-2xl font-semibold mb-6">Keep In Touch</h2>
         <form class="space-y-4">
           <!-- Name Field -->
@@ -730,7 +736,7 @@
             Submit Now
           </button>
           <!-- Consent Checkbox -->
-          <label class="flex items-center text-gray-400 text-sm">
+          <label class="flex items-center text-white lg:text-gray-400 text-[9px] lg:text-sm">
             <input type="checkbox" class="mr-2 border-gray-700 focus:ring-yellow-500" />
             I authorize company representatives to Call, SMS, Email or WhatsApp me about its products and offers. This
             consent overrides any registration for DND/NDNC.
@@ -739,7 +745,6 @@
       </div>
     </div>
   </div>
-
   <!-- Disclaimer Section -->
   <div class="bg-[#B8DBB4]  py-6">
 
@@ -894,6 +899,10 @@
     const closeDialog = () => {
       dialog.classList.add("hidden");
     };
+    // Automatically open the dialog when the page loads
+    document.addEventListener("DOMContentLoaded", () => {
+      setTimeout(openDialog, 1000); // Open the dialog after 2 seconds
+    });
 
     // Add event listeners to all buttons
     openDialogButtons.forEach((button) => {
